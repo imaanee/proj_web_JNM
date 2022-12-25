@@ -6,6 +6,8 @@ use App\Entity\User;
 use App\Entity\Miage;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,10 +21,29 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('email')
-            ->add('nom')
-            ->add('prenom')
-            ->add('miage')
+            ->add('email', EmailType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+
+            ->add('nom', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+
+            ->add('prenom', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
+
+            ->add('miage', TextType::class, [
+                'attr' => [
+                    'class' => 'form-control'
+                ]
+            ])
 
             // ->add('id_miage',  EntityType::class, [
             //     // looks for choices from this entity
@@ -38,21 +59,25 @@ class RegistrationFormType extends AbstractType
             //     // 'expanded' => true,
             // ])
 
-            // ->add('agreeTerms', CheckboxType::class, [
-            //     'mapped' => false,
-            //     'constraints' => [
-            //         new IsTrue([
-            //             'message' => 'You should agree to our terms.',
-            //         ]),
-            //     ],
-            // ])
+            ->add('agreeTerms', CheckboxType::class, [
+                 'mapped' => false,
+                 'constraints' => [
+                     new IsTrue([
+                         'message' => 'You should agree to our terms.',
+                     ]),
+                 ],
+                 'label' => 'En m\'inscrivant j\'accepte que mes données soient utilisées...'
+            ])
 
 
             ->add('plainPassword', PasswordType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'attr' => [
+                    'autocomplete' => 'new-password',
+                    'class' => 'form-control'
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
