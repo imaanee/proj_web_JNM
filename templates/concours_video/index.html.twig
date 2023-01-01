@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Concours Vidéo{% endblock %}
+
+
+
+{% block body %}
+              
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items formConcours">
+                        <h3>Participer au concours vidéo</h3>
+                        <p>Fill in the data below.</p>
+                        <div class="form-outline mb-4">
+                            <fieldset class="mb-3 concours">
+                                {{ form_start(registrationForm) }}
+                                {{ form_row(registrationForm.miage) }}
+                                {{ form_row(registrationForm.titreVideo) }}
+                                
+
+
+                            <button id="submit" type="submit" class="btn btn-primary">
+                                Envoyer
+                            </button>
+                            {{ form_end(registrationForm) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
