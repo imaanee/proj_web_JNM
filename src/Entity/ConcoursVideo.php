@@ -14,7 +14,7 @@ class ConcoursVideo
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private $titreVideo ;
+    private ?string $titreVideo ;
 
     #[ORM\Column(length: 255)]
     private ?string $miage = null;
@@ -24,12 +24,12 @@ class ConcoursVideo
         return $this->id;
     }
 
-    public function getTitreVideo()
+    public function getTitreVideo() : ?string
     {
         return $this->titreVideo;
     }
 
-    public function setTitreVideo($titreVideo): self
+    public function setTitreVideo(string $titreVideo): self
     {
         $this->titreVideo = $titreVideo;
 

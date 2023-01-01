@@ -4,6 +4,8 @@ namespace App\Controller;
 use App\Form\ConcoursVideoType;
 use App\Entity\ConcoursVideo;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,16 +15,20 @@ class ConcoursVideoController extends AbstractController
     #[Route('/concours', name: 'app_concours_video')]
     public function register(Request $request): Response
     {
-        //$miages = $this->repository->findAll();
-        
         $concours = new ConcoursVideo();
         $form = $this->createForm(ConcoursVideoType::class, $concours);
         $form->handleRequest($request);
         $name =$concours->getMiage();
         if ($form->isSubmitted() && $form->isValid()) {
-            $file = $concours->getTitreVideo();
+            $file = $form->get('titreVideo')->getData();
+           
+            //Générer nouveau nom de fichier
             $fileName = $name.'-'.uniqid().'.'.$file->guessExtension();
+            
+            //Copier le fichier dans le dossier upload/videosConcours
             $file->move($this->getParameter('upload_directory'), $fileName);
+            
+            //Stocker nom vidéo dans bdd
             $concours->setTitreVideo($fileName);
 
             $this->addFlash('success', 'Votre vidéo a bien été envoyé !');
@@ -31,7 +37,6 @@ class ConcoursVideoController extends AbstractController
 
         return $this->render('concours_video/index.html.twig', [
             'registrationForm' => $form->createView(),
-            //'miages' => $miages,
         ]);
     }
 }

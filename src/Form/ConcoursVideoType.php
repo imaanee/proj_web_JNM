@@ -14,11 +14,6 @@ class ConcoursVideoType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            // ->add('titreVideo', TextType::class, [
-            //     'attr' => [
-            //         'class' => 'form-control'
-            //     ]
-            // ])
 
             ->add('miage', TextType::class, [
                 'attr' => [
@@ -32,9 +27,8 @@ class ConcoursVideoType extends AbstractType
                     'class' => 'form-control'
                 ],
                 'label' => 'Charger votre vidéo'
-
-        ])
-        ;
+            ]);
+        
     }
 
     public function configureOptions(OptionsResolver $resolver): void
