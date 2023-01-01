@@ -41,6 +41,7 @@ body {
     -webkit-align-items: center;
     align-items: center;
     padding: 60px;
+    margin-top: -20%;
 }
 
 .form-content .form-items {
@@ -155,10 +156,15 @@ body {
 
 .concours
 {
-    padding-top : 50px;
+    padding-top : 20px;
 }
 
 .formConcours {
 
     background-color: rgb(39, 0, 0);
+}
+
+a {
+    color : white;
+    text-decoration: none;
 }

@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class ConcoursVideoController extends AbstractController
 {
-    #[Route('/concours', name: 'app_concours_video')]
+    #[Route('/concours/video', name: 'app_concours_video')]
     public function register(Request $request): Response
     {
         $concours = new ConcoursVideo();
@@ -38,5 +38,11 @@ class ConcoursVideoController extends AbstractController
         return $this->render('concours_video/index.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
+    }
+
+    #[Route('/concours', name: 'app_presentation_concours')]
+    public function index(): Response
+    {
+        return $this->render('concours_video/presentation.html.twig');
     }
 }

@@ -14,14 +14,15 @@
 
 
     <div class="form-body">
+    <a href="{{ path('app_home') }}"> <img src="{{ asset('logoJNM.png')}}" style="width:80px;height:auto;"> </a>
         <div class="row">
             <div class="form-holder">
                 <div class="form-content">
                     <div class="form-items formConcours">
                         <h3>Participer au concours vidéo</h3>
-                        <p>Fill in the data below.</p>
+                        <p>Remplissez le formulaire ci-dessous </p>
                         <div class="form-outline mb-4">
-                            <fieldset class="mb-3 concours">
+                            <fieldset class="mb-3 ">
                                 {{ form_start(registrationForm) }}
                                 {{ form_row(registrationForm.miage) }}
                                 {{ form_row(registrationForm.titreVideo) }}
