@@ -36,7 +36,7 @@ class ConcoursVideoController extends AbstractController
         }
 
         return $this->render('concours_video/index.html.twig', [
-            'registrationForm' => $form->createView(),
+            'concoursVideo' => $form->createView(),
         ]);
     }
 

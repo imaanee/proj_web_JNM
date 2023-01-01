@@ -23,16 +23,13 @@
                         <p>Remplissez le formulaire ci-dessous </p>
                         <div class="form-outline mb-4">
                             <fieldset class="mb-3 ">
-                                {{ form_start(registrationForm) }}
-                                {{ form_row(registrationForm.miage) }}
-                                {{ form_row(registrationForm.titreVideo) }}
-                                
-
-
-                            <button id="submit" type="submit" class="btn btn-primary">
-                                Envoyer
-                            </button>
-                            {{ form_end(registrationForm) }}
+                                {{ form_start(concoursVideo) }}
+                                {{ form_row(concoursVideo.miage) }}
+                                {{ form_row(concoursVideo.titreVideo) }}
+                                <button id="submit" type="submit" class="btn btn-primary">
+                                    Envoyer
+                                </button>
+                            {{ form_end(concoursVideo) }}
                         </div>
                     </div>
                 </div>
