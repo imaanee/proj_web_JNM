@@ -1,0 +1,9 @@
+body {
+    background: url("../test.jpg");
+    background-size: 100%;
+}
+
+.example-wrapper
+{
+    border: solid yellow;
+}

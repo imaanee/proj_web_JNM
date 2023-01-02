@@ -1,0 +1,119 @@
+{% extends 'base.html.twig' %}
+
+{# Titre de la page #}
+{% block title %}Acceuil{% endblock %}
+
+{# Ici vous mettez vos codes HTML et balises Twig au besoin #}
+{% block head%}
+
+{% endblock %}
+{% block body %}
+<section class="homePage">
+  <center>
+    <table style="text-align:center; padding 20px;">
+      <p style="font-size:30px;color: rgb(103, 1, 1);font-style: oblique;">JOURNEE NATIONALE DE LA MIAGE NANTERRE</p>
+      <tr style="font-size:40px;">
+        <td id="days" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
+        <td id="hours" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
+        <td id="min" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
+        <td id="sec" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
+      </tr>
+
+      <tr>
+        <td style="width: 80px; color: rgb(103, 1, 1);">Jours</td>
+        <td style="width: 80px; color: rgb(103, 1, 1);">Heures</td>
+        <td style="width: 80px; color: rgb(103, 1, 1);">Minutes</td>
+        <td style="width: 80px; color: rgb(103, 1, 1);">Seconds</td>
+      </tr>
+    </table>
+  </center>
+
+  <script "type=text/javascript">
+  let msec = Date.parse("january 31, 2023");
+  const x = new Date(msec);
+  var y = x.getTime();
+  var total = y+(24*60*60*1000);
+  function count()
+  {
+    var now = new Date();
+    var currentTime = now.getTime();
+
+    var diff = total - currentTime;
+    var s = Math.floor(diff/1000);
+    var m = Math.floor(s/60);
+    var h = Math.floor(m/60);
+    var d = Math.floor(h/24-1);
+
+    h = h%24;
+    m = m%60;
+    s = s%60;
+
+    h = (h<10)?"0"+h:h;
+    m = (m<10)?"0"+m:m;
+    s = (s<10)?"0"+s:s;
+    d = (d<10)?"0"+d:d;
+
+    document.getElementById("days").innerHTML = d;
+    document.getElementById("hours").innerHTML = h;
+    document.getElementById("min").innerHTML = m;
+    document.getElementById("sec").innerHTML = s;
+
+    setTimeout(count);
+  }
+  count();
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="http://127.0.0.1:8000/" style="color: rgb(103, 1, 1);">Accueil</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="http://127.0.0.1:8000/activite" style="color: rgb(103, 1, 1);">Activités</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#" style="color: rgb(103, 1, 1);">Programmes</a>
+        </li>
+
+        {% if app.user %}
+        <li class="nav-item dropdown">
+          <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: rgb(103, 1, 1);">{{ app.user.prenom }}</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: rgb(103, 1, 1);">Se déconnecter</a>
+            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">réservation un logement</a>
+            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">réservation titre transport</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/admin" style="color: rgb(103, 1, 1);">administration page</a>
+          </div>
+        </li>
+        {% else %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: rgb(103, 1, 1);">Autre</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">Information logement</a>
+            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">Information titre transport</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: rgb(103, 1, 1);">Authentication</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="http://127.0.0.1:8000/login" style="color: rgb(103, 1, 1);">Connexion</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/register" style="color: rgb(103, 1, 1);">Inscription</a>
+          </div>
+        </li>
+        {% endif %}
+      </ul>
+      <form class="d-flex">
+        <input class="form-control me-sm-2" type="text" placeholder="Recherche activités">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" style="background-color: rgb(103, 1, 1); color:white;">Recherche</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</section>
+
+
+{% endblock %}

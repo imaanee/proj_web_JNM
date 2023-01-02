@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Log in!{% endblock %}
+
+{% block body %}
+
+<section class="loginPage">
+
+    <div class="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+        <div class="row gx-lg-5 align-items-center mb-5">
+            <div class="col-lg-6 mb-5 mb-lg-0" style="z-index: 10; background-color : rgba(255,255,255,0.7);">
+                <h1 class="my-5 display-5 fw-bold ls-tight" style="color: rgb(103, 1, 1)">
+                SE CONNECTER <br />
+                {# <span style="color: rgb(103, 1, 1) text-size: 16px">Inscrivez-vous à la Journée Nationale de la
+                Miage de Nanterre</span> #}
+                </h1>
+                <p class="mb-4 opacity-70" style="color: rgb(103, 1, 1)">
+                Connectez-vous à la Journée Nationale de la
+                Miage de Nanterre
+                </p>
+            </div>
+
+            <div class="col-lg-6 mb-5 mb-lg-0 position-relative">
+                <div class="card bg-glass">
+                    <div class="card-body px-4 py-5 px-md-5">
+
+                        <!-- START FORM -->
+                        <form method="post">
+
+                            {% if error %}
+                                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                            {% endif %}
+
+
+
+                            {# <div class="row">
+                                <div class="col-md-6 mb-4">
+                                <div class="form-outline">
+                                    HELLO WORLD
+                                </div>
+                                </div>
+                            </div> #}
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example3">Email</label>
+                                <input type="email" value="{{ last_username }}" name="email" id="form3Example3" class="form-control" autocomplete="email" required autofocus>
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example4">Mot de passe</label>
+                                <input type="password" name="password" id="form3Example4" class="form-control" autocomplete="current-password" required>
+                            </div>
+
+                            <input type="hidden" name="_csrf_token"
+                                value="{{ csrf_token('authenticate') }}"
+                            >
+                            {% if app.user %}
+                                <div class="mb-3">
+                                    Bienvenu {{ app.user.prenom }}, <a href="{{ path('app_logout') }}">Se déconnecter</a>
+                                </div>
+                            {% else %}
+                            <!-- Submit button -->
+                            <div class="form-check d-flex justify-content-center mb-4">
+                                <button type="submit" class="btn btn-primary btn-block mb-4" style="background-color:rgb(103, 1, 1); border : none">
+                                    Se Connecter
+                                </button>
+                            </div>
+                            <!-- Register/Forgot password buttons -->
+                            <div class="text-left" >
+                                <button type="button" class="btn btn-link btn-floating mx-1" >
+                                    <a href="{{ path('app_register') }} " style="color:rgb(103, 1, 1)">S'inscrire </a>
+                                </button>
+                                <button type="button" class="btn btn-link btn-floating mx-1" style="color:rgb(103, 1, 1)">
+                                    Mot de passe oublié ?
+                                </button>
+                            </div>
+                            {% endif %}
+
+
+                        </form>
+                        <!-- END FORM -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+{% endblock %}
