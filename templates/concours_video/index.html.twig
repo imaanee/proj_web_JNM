@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Concours Vidéo{% endblock %}
+
+
+{% block body %}
+
+{% for message in app.flashes('success') %}
+    <div class="alert alert-success">
+        {{ message }}
+    </div>
+{% endfor %}
+
+
+    <div class="form-body">
+    <a href="{{ path('app_home') }}"> <img src="{{ asset('logoJNM.png')}}" style="width:80px;height:auto;"> </a>
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items formConcours">
+                        <h3>Participer au concours vidéo</h3>
+                        <p>Remplissez le formulaire ci-dessous </p>
+                        <div class="form-outline mb-4">
+                            <fieldset class="mb-3 ">
+                                {{ form_start(concoursVideo) }}
+                                {{ form_row(concoursVideo.miage) }}
+                                {{ form_row(concoursVideo.titreVideo) }}
+                                <button id="submit" type="submit" class="btn btn-primary">
+                                    Envoyer
+                                </button>
+                            {{ form_end(concoursVideo) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
