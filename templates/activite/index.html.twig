@@ -87,7 +87,7 @@
           <div class="dropdown-menu">
             <a class="dropdown-item" href="{{ path('app_logout') }}" style="color: rgb(103, 1, 1);">Se déconnecter</a>
             <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">réservation un logement</a>
-            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">réservation titre transport</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/transport" style="color: rgb(103, 1, 1);">réservation titre transport</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="http://127.0.0.1:8000/admin" style="color: rgb(103, 1, 1);">administration page</a>
           </div>
@@ -97,7 +97,7 @@
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: rgb(103, 1, 1);">Autre</a>
           <div class="dropdown-menu">
             <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">Information logement</a>
-            <a class="dropdown-item" href="#" style="color: rgb(103, 1, 1);">Information titre transport</a>
+            <a class="dropdown-item" href="http://127.0.0.1:8000/transport" style="color: rgb(103, 1, 1);">Information titre transport</a>
           </div>
         </li>
         <li class="nav-item dropdown">
@@ -119,22 +119,17 @@
 </section>
 <br/>
 
-<div class="card border-primary mb-3" style="max-width: 80%; margin-left: 10%; border-radius: 15px;color: rgb(103, 1, 1);">
-  <div class="card-body">
-    <h4 class="card-title">Primary card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-<div class="card border-primary mb-3" style="max-width: 80%; margin-left: 10%; border-radius: 15px;color: rgb(103, 1, 1);;">
-  <div class="card-body">
-    <h4 class="card-title">Primary card title</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-  </div>
-</div>
-
-
-
-
-
+    <ul>
+        {% for activite in activites %}
+        <li>
+        <div class="card border-primary mb-3" style="max-width: 80%; margin-left: 10%; border-radius: 15px;color: rgb(103, 1, 1);">
+          <div class="card-body">
+            <h4 class="card-title">{{ activite.titre }}</h4>
+            <img src="upload/images/activites/{{activite.image }}" style="width:200px;height:auto;">
+            <p class="card-text">{{activite.content}}</p>
+          </div>
+        </div>
+        </li>
+        {% endfor %}
+    </ul>
 {% endblock %}

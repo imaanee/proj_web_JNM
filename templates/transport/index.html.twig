@@ -1,12 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{# Titre de la page #}
-{% block title %}Programme{% endblock %}
 
-{# Ici vous mettez vos codes HTML et balises Twig au besoin #}
-{% block head%}
 
-{% endblock %}
+{% block title %}Hello TransportController!{% endblock %}
+
 {% block body %}
 <section class="homePage">
   <center>
@@ -117,52 +114,33 @@
     </div>
   </div>
 </nav>
+</section>
 
-<section class="loginPage">
-    <div class="container px-3 py-3 px-md-1 text-center text-lg-start my-10" style="padding-left:100px;">
-        <div class="row gx-lg-5 align-items-center mb-5" >
-            <div class="col-lg-8 mb-5 mb-lg-0 position-relative">
-                <div class="card bg-glass">
-                    <div class="card-body px-10 py-1 px-md-5">
-                    <div class="container">
-                    <div class="row d-flex justify-content-center">
-                    <div class="col-10 pb-5 text-center">
-                    <h1 class="quicksand-font header text-uppercase" style="color: rgb(103, 1, 1);">Programmes</h1>
-                    <hr>
-                    </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                    <div class="col-10 pb-5 text-center">
-                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Mercredi 6 juin</h4>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Petit déjeuner</p>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Arrivée des partenaires</p>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Cérémonie d'ouverture</p>
-                    </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                    <div class="col-10 pb-5 text-center">
-                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Jeudi 7 juin</h4>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">keynote d'ouverture</p>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">L'instant concours</p>
-                    </div>
-                    </div>
-                    <div class="row d-flex justify-content-center">
-                    <div class="col-10 pb-5 text-center">
-                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Vendredi 8 juin</h4>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Table ronde</p>
-                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Keynote de fermeture</p>
-                    </div>
+<div class="example-wrapper transport" style="background-color : white; text-align:center">
 
 
-                    </div>
-                </div>
+
+    <img src="{{ asset('navigo.png')}}" style="width:200px;height:auto; margin-bottom:20px">
+
+    <h1> Réservez votre titre de transport : </h1>
+    <a href="https://www.iledefrance-mobilites.fr/titres-et-tarifs"> <p style="color:black"> Pour plus d'informations consultez le site ile de France Mobilités </p>
+    </a>
+
+
+
+        {% for transport in listeTransport %}
+
+            <div class="transportBox" style="margin-left:10%; margin-top:30px; display : flex; flex-direction:column; width:300px; justify-content:center">
+                <h4>{{ transport.nomTransport }}</h4>
+
+                <p> Tarif : {{ transport.tarif }} €</p>
+
+                <button id="submit" type="submit" class="btn btn-primary" style="margin-top:-10px; width:150px; margin-left:70px">
+                    Réserver
+                </button>
             </div>
-        </div>
+        {% endfor %}
     </div>
-</section>
 
-
-</section>
-
-
+</div>
 {% endblock %}
