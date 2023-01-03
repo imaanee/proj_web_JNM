@@ -40,7 +40,7 @@ class ActivitesCrudController extends AbstractCrudController
               ->setUploadDir('public/upload/images/activites')
               ->setSortable(false),
 
-            TextEditorField::new('content'),
+            TextField::new('content'),
             DateTimeField::new('created_at')
               ->setTimezone('Europe/Paris')
               ->hideOnForm(),
