@@ -1,9 +1,12 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Concours Vidéo{% endblock %}
+{# Titre de la page #}
+{% block title %}Programme{% endblock %}
 
+{# Ici vous mettez vos codes HTML et balises Twig au besoin #}
+{% block head%}
 
-
+{% endblock %}
 {% block body %}
 <section class="homePage">
   <center>
@@ -115,36 +118,51 @@
   </div>
 </nav>
 
-</section>
-    <div class="form-body">
-    <br/><br/><br/>
-        <div class="row">
-            <div class="form-holder">
-                <div class="form-content">
-                    <div class="form-items formConcours">
-                        <h3>Concours vidéo JNM 2023</h3>
-                        <p>Réaliser une vidéo de 10 minutes contenant :</p><br\>
-                          <ul>
-                        <li> <p>L'apparition de Nanterre </p></li>
-                        <li> <p>Faire la pub d'un produit de ta région</p></li>
-                        <li> <p>Une séquence muette en noir et blanc avec une musique des années 50</p></li>
-                        <li> <p>Une chorégraphie guerrière comme un haka</p></li>
-                        <li> <p>Quelques phrases en langue fictive -elfique, volapuk-</p></li>
-                        <li> <p>Sous-titres en verlan et en changeant la structure grammaticale</p></li>
-                        <li> <p>Une entité dotée d'une paresse extrême</p></li>
-                        </ul>
-                        <a href="{{ path('app_concours_video') }}" style="color : white;">
-                            <button class="btn btn-primary">
-                                Participer
-                            </button>
-                        </a>
+<section class="loginPage">
+    <div class="container px-3 py-3 px-md-1 text-center text-lg-start my-10" style="padding-left:100px;">
+        <div class="row gx-lg-5 align-items-center mb-5" >
+            <div class="col-lg-8 mb-5 mb-lg-0 position-relative">
+                <div class="card bg-glass">
+                    <div class="card-body px-10 py-1 px-md-5">
+                    <div class="container">
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-10 pb-5 text-center">
+                    <h1 class="quicksand-font header text-uppercase" style="color: rgb(103, 1, 1);">Programmes</h1>
+                    <hr>
+                    </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-10 pb-5 text-center">
+                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Mercredi 6 juin</h4>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Petit déjeuner</p>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Arrivée des partenaires</p>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Cérémonie d'ouverture</p>
+                    </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-10 pb-5 text-center">
+                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Jeudi 7 juin</h4>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">keynote d'ouverture</p>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">L'instant concours</p>
+                    </div>
+                    </div>
+                    <div class="row d-flex justify-content-center">
+                    <div class="col-10 pb-5 text-center">
+                    <h4 class="text-center quicksand-font text-uppercase" style="color: rgb(103, 1, 1);">Vendredi 8 juin</h4>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Table ronde</p>
+                    <p class="text-uppercase" style="color: rgb(103, 1, 1);">Keynote de fermeture</p>
+                    </div>
+
 
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</section>
 
+
+</section>
 
 
 {% endblock %}

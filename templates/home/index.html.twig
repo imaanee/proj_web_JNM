@@ -11,6 +11,7 @@
 <section class="homePage">
   <center>
     <table style="text-align:center; padding 20px;">
+      <a href="{{ path('app_home') }}"> <img src="{{ asset('logoJNM.png')}}" style="width:80px;height:auto;"> </a>
       <p style="font-size:30px;color: rgb(103, 1, 1);font-style: oblique;">JOURNEE NATIONALE DE LA MIAGE NANTERRE</p>
       <tr style="font-size:40px;">
         <td id="days" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
@@ -75,7 +76,10 @@
           <a class="nav-link" href="http://127.0.0.1:8000/activite" style="color: rgb(103, 1, 1);">Activités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: rgb(103, 1, 1);">Programmes</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/programmes" style="color: rgb(103, 1, 1);">Programmes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/concours" style="color: rgb(103, 1, 1);">Concours Video</a>
         </li>
 
         {% if app.user %}
@@ -114,5 +118,50 @@
   </div>
 </nav>
 
+<section class="loginPage">
+    <div class="container px-3 py-3 px-md-1 text-center text-lg-start my-10" style="padding-left:100px;">
+        <div class="row gx-lg-5 align-items-center mb-5" >
+            <div class="col-lg-8 mb-5 mb-lg-0 position-relative">
+                <div class="card bg-glass">
+                    <div class="card-body px-10 py-1 px-md-5">
+                        <h1 class="my-5 display-9 fw-bold ls-tight" style="color: rgb(103, 1, 1)">
+                            Les Journées Nationales MIAGE <br />
+                        </h1>
+
+                        <p>
+                        Chaque année, depuis la création de la formation, le réseau MIAGE tout entier se donne rendez-vous dans une ville différente pour les Journées Nationales MIAGE. Cet évènement annuel, qui se déroule sur 3 jours, rassemble plus de 400 étudiants. Ces journées sont basées sur un thème particulier et proposent conférences, expositions, rencontres avec les professionnels, sans oublier son traditionnel gala.
+                        </p>
+                        <p>
+                        Cette année, les miagistes se regroupent dans le superbe cadre de la ville de Nanterre du 7 au 9 juin. Le thème de l'événement s'intitulera : Le bien-être en entreprise.
+                        </p>
+                        <div class="video-container">
+                          <iframe width="800" height="450" src="https://www.youtube-nocookie.com/embed/c5aC10n1_gw?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                        </div>
+                        <p style="text-align: justify;">
+                        <b>Le mot du président :</b><br><br>
+                                            C'est avec un immense plaisir que l'équipe Nanterre des JNM2023 reprend le flambeau des JNM 2022 de Nice. <br><br>
+                                            Beaucoup de challenges nous attendent pour être à la hauteur des éditions précédentes, c'est pourquoi toute l'équipe se donne au maximum pour que
+                                            les Journées Nationales de la MIAGE 2023 soient une réussite autant pour les étudiants de toute la France que pour les entreprises qui y participent.
+                                            Cette année, le thème des JNM se base sur l'histoire de la région Bretagne : La culture Celte, pilière de la culture bretonne. <br><br>
+
+                                            Cette édition abordera également différents thèmes: l'innovation et le Big Data. Le premier reprend l'une des principales façon de penser des métiers
+                                            de l'informatique: Innover. On la retrouve dans de nombreuses entreprises Rennaises, notamment dans l'état d'esprit des startups.
+                                            Le deuxième est une étoile montante de la gestion de données, permettant de répondre à l'optimisation des grosses structures de données. <br><br>
+
+                                            Toute l'équipe des JNM espère vous retrouver les 7,8 et 9 Juin pour un événement innoubliable ! <br><br>
+
+                                            A très vite !
+                        </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
+
+
+</section>
+
+
 {% endblock %}
