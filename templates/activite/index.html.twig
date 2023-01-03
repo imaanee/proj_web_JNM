@@ -11,6 +11,7 @@
 <section class="homePage">
   <center>
     <table style="text-align:center; padding 20px;">
+      <a href="{{ path('app_home') }}"> <img src="{{ asset('logoJNM.png')}}" style="width:80px;height:auto;"> </a>
       <p style="font-size:30px;color: rgb(103, 1, 1);font-style: oblique;">JOURNEE NATIONALE DE LA MIAGE NANTERRE</p>
       <tr style="font-size:40px;">
         <td id="days" style="background-color: rgb(103, 1, 1); color:white; border-radius: 20px; box-shadow: 1px 1px 5px rgb(103, 1, 1);"><center>00</center></td>
@@ -75,9 +76,11 @@
           <a class="nav-link active" href="http://127.0.0.1:8000/activite" style="color: rgb(103, 1, 1);">Activités</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#" style="color: rgb(103, 1, 1);">Programmes</a>
+          <a class="nav-link" href="http://127.0.0.1:8000/programmes" style="color: rgb(103, 1, 1);">Programmes</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="http://127.0.0.1:8000/concours" style="color: rgb(103, 1, 1);">Concours Video</a>
+        </li>
         {% if app.user %}
         <li class="nav-item dropdown">
           <a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" style="color: rgb(103, 1, 1);">{{ app.user.prenom }}</a>
@@ -114,6 +117,24 @@
   </div>
 </nav>
 </section>
+<br/>
+
+<div class="card border-primary mb-3" style="max-width: 80%; margin-left: 10%; border-radius: 15px;color: rgb(103, 1, 1);">
+  <div class="card-body">
+    <h4 class="card-title">Primary card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+<div class="card border-primary mb-3" style="max-width: 80%; margin-left: 10%; border-radius: 15px;color: rgb(103, 1, 1);;">
+  <div class="card-body">
+    <h4 class="card-title">Primary card title</h4>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+</div>
+
+
+
 
 
 {% endblock %}

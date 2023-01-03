@@ -2,10 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\Activites;
+use App\Repository\ActivitesRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-
 class ActiviteController extends AbstractController
 {
     #[Route('/activite', name: 'app_activite')]
