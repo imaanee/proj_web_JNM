@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : localhost:8889
--- Généré le : mar. 03 jan. 2023 à 06:21
+-- Généré le : mar. 03 jan. 2023 à 16:10
 -- Version du serveur :  5.7.34
 -- Version de PHP : 8.0.8
 
@@ -41,8 +41,9 @@ CREATE TABLE `activites` (
 --
 
 INSERT INTO `activites` (`id`, `titre`, `content`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Le Gala', '<div>Nous vous attendons nombreux le 7 juin 2018 au Casino la Siesta à partir de 19h, pour la plus grande soirée miagiste de l\'année !</div><div>​</div><div><strong><em>Au programme :</em></strong></div><ul><li>19h : Cocktail de bienvenue + photo call</li><li>20h15 : Dîner de Gala + spectacle de mentalisme</li><li>23h : Soirée de Gala</li></ul><div>Et pleins d\'autres surprises !</div><div>​</div><div><strong><em>Au menu :</em></strong></div><ul><li>Gravelax de saumon mariné aux herbes fraiches, crème acidulée</li></ul><div><br></div><ul><li>Suprême de volaille fermière, crème de morilles, gratin dauphinois, pousses de salade</li></ul><div><br></div><ul><li>Fraisier et son coulis de fruits rouges, rosasse de chantilly</li></ul>', 'Le gala.png', '2023-01-02 14:28:33', '2023-01-02 14:30:38'),
-(2, '1000 euros de prix, pour 3 minutes de présentation !', '<div>Vous devrez préparer un speech sur un service innovant mélangeant objets connectés et/ou exploitation des données et développement durable, et le présenter le jeudi 7 après-midi lors des JNM aux représentants du département des Alpes Maritimes.<br><br>Attention, il faut s\'inscrire par mail !<br>&nbsp;</div><div>Le règlement du concours :</div>', '1000euro.webp', '2023-01-02 14:30:23', NULL);
+(1, 'Le Gala', 'Nous vous attendons nombreux le 7 juin 2018 au Casino la Siesta à partir de 19h, pour la plus grande soirée miagiste de l\'année ! Au programme : 19h : Cocktail de bienvenue + photo call - 20h15 : Dîner de Gala + spectacle de mentalisme - 23h : Soirée de Gala - Et pleins d\'autres surprises !', 'Le gala.png', '2023-01-02 14:28:33', '2023-01-03 09:25:31'),
+(2, '1000 euros de prix, pour 3 minutes de présentation !', 'Vous devrez préparer un speech sur un service innovant mélangeant objets connectés et/ou exploitation des données et développement durable, et le présenter le jeudi 7 après-midi lors des JNM aux représentants du département des Alpes Maritimes. Attention, il faut s\'inscrire par mail !', '1000euro.webp', '2023-01-02 14:30:23', '2023-01-03 09:26:42'),
+(3, 'new', 'new activite', 'miru.jpg', '2023-01-03 11:02:21', NULL);
 
 -- --------------------------------------------------------
 
@@ -66,6 +67,13 @@ CREATE TABLE `concours_video` (
   `miage` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Déchargement des données de la table `concours_video`
+--
+
+INSERT INTO `concours_video` (`id`, `titre_video`, `miage`) VALUES
+(1, 'mov_bbb.mp4', 'Dauphine');
+
 -- --------------------------------------------------------
 
 --
@@ -83,7 +91,8 @@ CREATE TABLE `doctrine_migration_versions` (
 --
 
 INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_time`) VALUES
-('DoctrineMigrations\\Version20230102134319', '2023-01-02 13:43:33', 200);
+('DoctrineMigrations\\Version20230102134319', '2023-01-02 13:43:33', 200),
+('DoctrineMigrations\\Version20230103101301', '2023-01-03 10:13:15', 229);
 
 -- --------------------------------------------------------
 
@@ -123,6 +132,26 @@ INSERT INTO `miage` (`id`, `nom`) VALUES
 (4, 'Sorbonne Pantheon'),
 (5, 'Toulouse'),
 (6, 'Nice');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `transport`
+--
+
+CREATE TABLE `transport` (
+  `id` int(11) NOT NULL,
+  `nom_transport` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `tarif` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `transport`
+--
+
+INSERT INTO `transport` (`id`, `nom_transport`, `tarif`) VALUES
+(1, 'Forfait Navigo Jour', 7),
+(2, 'Forfait Navigo Jeunes', 4);
 
 -- --------------------------------------------------------
 
@@ -170,7 +199,8 @@ INSERT INTO `user` (`id`, `email`, `roles`, `password`, `nom`, `prenom`, `miage`
 (21, 'arcu.aliquam.ultrices@aol.ca', 'ROLE_BDE', '$2y$13$tN.qEU0hLFGKojmiuTs9pe2HDBW/19zVU8DH1KiCk.bdsDCPvIJKO', 'Lang', 'Zeph', 'Nanterre', NULL, NULL),
 (22, 'eu.turpis@aol.couk', 'ROLE_USER', '$2y$13$4fmlRhKF6Bm3VEvKB8/dfe7z.ip365R/ZjTKYHVoHp85i8pKy49YK', 'Guy', 'Macon', 'Toulouse', NULL, NULL),
 (23, 'sollicitudin.orci.sem@protonmail.org', 'ROLE_USER', '$2y$13$wtknCOowkcM90PbS58TTC.gRub1ltODR455HphsJnkpNVSdZD9H4y', 'Padilla', 'Carol', 'Saclay', NULL, NULL),
-(24, 'phasellus.in@aol.ca', 'ROLE_USER', '$2y$13$Ybx/c3gWQhJphA1yOaTTtuzbwY/5sNqDgObvzdMket.zqPNekpoxm', 'Leach', 'Abel', 'Nanterre', NULL, NULL);
+(24, 'phasellus.in@aol.ca', 'ROLE_USER', '$2y$13$Ybx/c3gWQhJphA1yOaTTtuzbwY/5sNqDgObvzdMket.zqPNekpoxm', 'Leach', 'Abel', 'Nanterre', NULL, NULL),
+(25, 'test@gmail.com', 'ROLE_USER', '$2y$13$UKujcMt3uu/JEtR09xCA5.GtHohvHM17LFXymH3ggQ7sjYpAyf2Nu', 'toto', 'titit', 'Nanterre', NULL, NULL);
 
 --
 -- Index pour les tables déchargées
@@ -216,6 +246,12 @@ ALTER TABLE `miage`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Index pour la table `transport`
+--
+ALTER TABLE `transport`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `user`
 --
 ALTER TABLE `user`
@@ -230,7 +266,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT pour la table `activites`
 --
 ALTER TABLE `activites`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT pour la table `administrateur`
@@ -242,7 +278,7 @@ ALTER TABLE `administrateur`
 -- AUTO_INCREMENT pour la table `concours_video`
 --
 ALTER TABLE `concours_video`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT pour la table `messenger_messages`
@@ -257,10 +293,16 @@ ALTER TABLE `miage`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT pour la table `transport`
+--
+ALTER TABLE `transport`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT pour la table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
